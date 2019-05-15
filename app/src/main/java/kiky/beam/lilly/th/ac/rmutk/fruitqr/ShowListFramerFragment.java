@@ -166,6 +166,15 @@ public class ShowListFramerFragment extends Fragment {
 //                    Search ผลไม้
                     Log.d("15MayV1", "Search by ผลไม้");
 
+                    Log.d("15MayV1", "idRecordString ==> " + idRecordString);
+                    Log.d("15MayV1", "Search ==> " + search);
+
+                    GetDataWhereTwoColunmThread getDataWhereTwoColunmThread = new GetDataWhereTwoColunmThread(getActivity());
+                    getDataWhereTwoColunmThread.execute("idRecord", idRecordString.trim(), "Name", search.trim(), myconstant.getUrlGetDetailFarmerWhereIdRecordAndName());
+                    result = getDataWhereTwoColunmThread.get();
+
+                    Log.d("15MayV1", "result ==> " + result);
+
                 }
 
             }

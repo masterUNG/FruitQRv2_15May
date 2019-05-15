@@ -43,7 +43,11 @@ public class Myconstant {
 
     private String urlGetDetailFarmerWhereName = "http://www.androidthai.in.th/rmutk/getDetailFramerWhereNameLilly.php";
     private String urlGerMasterWhereName = "http://www.androidthai.in.th/rmutk/getMasterWhereNameLilly.php";
+    private String urlGetDetailFarmerWhereIdRecordAndName = "http://androidthai.in.th/rmutk/getDetailFramerWhereIdRecordAnNameLilly.php";
 
+    public String getUrlGetDetailFarmerWhereIdRecordAndName() {
+        return urlGetDetailFarmerWhereIdRecordAndName;
+    }
 
     public String getUrlGerMasterWhereName() {
         return urlGerMasterWhereName;
