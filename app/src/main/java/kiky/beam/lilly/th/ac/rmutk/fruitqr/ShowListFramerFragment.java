@@ -119,6 +119,29 @@ public class ShowListFramerFragment extends Fragment {
                 } else {
 //                    Search by สวน
                     Log.d("15MayV1", "Search by สวน");
+
+                    GetDataWhereOneColumn getDataWhereOneColumn = new GetDataWhereOneColumn(getActivity());
+                    getDataWhereOneColumn.execute("Name", search, myconstant.getUrlGerMasterWhereName());
+
+                    String resultGarden = getDataWhereOneColumn.get();
+                    Log.d("15MayV1", "resultGarden ==> " + resultGarden);
+                    MyAlertDialog myAlertDialog = new MyAlertDialog(getActivity());
+
+                    if (resultGarden.equals("null")) {
+                        myAlertDialog.normalDialog("ไม่มีสวนนี้", "ไม่มี ชื่อสวนนี่ใน ฐานข้อมูล");
+                    } else {
+                        JSONArray jsonArray = new JSONArray(resultGarden);
+                        JSONObject jsonObject = jsonArray.getJSONObject(0);
+                        String idGarden = jsonObject.getString("id");
+                        Log.d("15MayV1", "idGarden ==> " + idGarden);
+
+                        GetDataWhereOneColumn getDataWhereOneColumn1 = new GetDataWhereOneColumn(getActivity());
+                        getDataWhereOneColumn1.execute("idRecord", idGarden, myconstant.getUrlGetDetailFramerWhereIdRecord());
+                        result = getDataWhereOneColumn1.get();
+
+                    }
+
+
                 }
 
             } else{ //สถานะมากกว่า1

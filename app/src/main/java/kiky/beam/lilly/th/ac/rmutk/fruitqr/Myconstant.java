@@ -42,6 +42,12 @@ public class Myconstant {
     private String urlGetAllDetailFramer = "http://www.androidthai.in.th/rmutk/getAllDetaiFramerLilly.php"; //Admin ดูได้ทั้งหมด DetailFramer
 
     private String urlGetDetailFarmerWhereName = "http://www.androidthai.in.th/rmutk/getDetailFramerWhereNameLilly.php";
+    private String urlGerMasterWhereName = "http://www.androidthai.in.th/rmutk/getMasterWhereNameLilly.php";
+
+
+    public String getUrlGerMasterWhereName() {
+        return urlGerMasterWhereName;
+    }
 
     public String getUrlGetDetailFarmerWhereName() {
         return urlGetDetailFarmerWhereName;
