@@ -114,6 +114,11 @@ public class ShowListFramerFragment extends Fragment {
                     getDataWhereOneColumn.execute("Name", search, myconstant.getUrlGetDetailFarmerWhereName());
                     result = getDataWhereOneColumn.get();
 
+                    if (result.equals("null")) {
+                        MyAlertDialog myAlertDialog = new MyAlertDialog(getActivity());
+                        myAlertDialog.normalDialog("ไม่มีผลไม้นี่", "ไม่มีชื่อผลไม้นี้ใน ฐานข้อมูล");
+                    }
+
                     Log.d("15MayV1", "result ==> " + result);
 
                 } else {
