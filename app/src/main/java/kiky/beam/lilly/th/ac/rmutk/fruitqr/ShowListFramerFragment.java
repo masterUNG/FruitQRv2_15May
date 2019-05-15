@@ -31,6 +31,7 @@ public class ShowListFramerFragment extends Fragment {
     private Myconstant myconstant = new Myconstant();
     private boolean searchABoolean = true;  // true ==> Search ชื่อผลไม้ false ชื่อสวน
     private int indexSearch = 1;
+    private RadioGroup radioGroup;
 
     public ShowListFramerFragment() {
         // Required empty public constructor
@@ -39,19 +40,22 @@ public class ShowListFramerFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        //        Type Controller
+        typeController();
+
         //การสร้าง Create Recycler
         createRecyclerView(0);
 
 //        Search Controller
         searchController();
 
-//        Type Controller
-        typeController();
+
 
     }   // Main Method
 
     private void typeController() {
-        RadioGroup radioGroup = getView().findViewById(R.id.ragSearch);
+        radioGroup = getView().findViewById(R.id.ragSearch);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -151,13 +155,17 @@ public class ShowListFramerFragment extends Fragment {
 
             } else{ //สถานะมากกว่า1
 
+                radioGroup.setVisibility(View.INVISIBLE);
+
                 if (indexSearch == 0) {
+
                     GetDataWhereOneColumn getDataWhereOneColumn = new GetDataWhereOneColumn(getActivity());
                     getDataWhereOneColumn.execute("idRecord", idRecordString, myconstant.getUrlGetDetailFramerWhereIdRecord());
                     result = getDataWhereOneColumn.get();
                 } else {
 //                    Search ผลไม้
                     Log.d("15MayV1", "Search by ผลไม้");
+
                 }
 
             }
